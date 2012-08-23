@@ -104,6 +104,7 @@ PRODUCT_PACKAGES += \
 # Samsung Specific tools
 PRODUCT_PACKAGES += \
 	SamsungServiceMode \
+        CrespoUpdater \
 	CrespoParts
 
 # Libs
