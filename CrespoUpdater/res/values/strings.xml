@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Shuvit ROM Update Checker</string>
-    <string name="app_name">ShuvitUpdater</string>
+    <string name="hello">Crespo ROM Update Checker</string>
+    <string name="app_name">CrespoUpdater</string>
     <string name="update_button_text">Checking Now</string>
-    <string name="msg_board_default_text">Shuvit Updater</string>
+    <string name="msg_board_default_text">Crespo Updater</string>
     
 </resources>
