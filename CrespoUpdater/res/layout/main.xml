@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:background="#000000"
-        android:textColor="#CCCCCC"
+        android:textColor="@*android:color/color_default_cyanmobile"
         android:textStyle="bold"
         android:scrollbars="vertical"
         android:text="@string/msg_board_default_text" >
