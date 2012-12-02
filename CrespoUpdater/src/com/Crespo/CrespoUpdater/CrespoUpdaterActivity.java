@@ -1,6 +1,5 @@
 package com.Crespo.CrespoUpdater;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +39,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class CrespoUpdaterActivity extends Activity {
 	private static TextView textView;
 	private static TextView buttonTextView;
@@ -65,7 +63,6 @@ public class CrespoUpdaterActivity extends Activity {
     private static final int REQUEST_CODE_PICK_FILE = 999;
     private static Context theView;
 
-	
 /** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +83,7 @@ public class CrespoUpdaterActivity extends Activity {
 	public void onBackPressed() {
 	    System.exit(0);
 	}
-	
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 	    super.onConfigurationChanged(newConfig);
@@ -117,7 +114,7 @@ public class CrespoUpdaterActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void alreadyDownloadedHandler() {
 		textView.setGravity(17);
 		try {
@@ -195,7 +192,7 @@ public class CrespoUpdaterActivity extends Activity {
 			break;
 		}
 	}
-	
+
 	private boolean isNetworkAvailable() {
 		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -257,7 +254,7 @@ public class CrespoUpdaterActivity extends Activity {
 			}).show();
 		}
 	}
-	
+
 	private void checkStatus(){
 		ALREADY_CHECKED = 1;
 		// split up the manifest into useable data
@@ -296,7 +293,7 @@ public class CrespoUpdaterActivity extends Activity {
 				// if we haven't downloaded yet, prompt the user to download the new version
 				textView.setGravity(3);
 				textView.setText("Changelog "+romName+":\n"+theChangeLog);
-				showCustomToast("A new build is available:\n"+romName+theDate);
+				showCustomToast("A new build is available:\n"+romName);
 				buttonTextView.setText("Download Now");
 			}
 		} else {
@@ -304,9 +301,8 @@ public class CrespoUpdaterActivity extends Activity {
 			textView.setText("Current: "+BUILD_DATE+"\nAvailable: "+theDate+"\nCheck again later");
 			buttonTextView.setText("Already Up To Date");
 		}
-
 	}
-	
+
 	public void checkDownloadedFile() {
 		String[] separated = line.split(",");
 		theDate = separated[0];
@@ -322,7 +318,7 @@ public class CrespoUpdaterActivity extends Activity {
         intent.putExtra("org.openintents.extra.TITLE", "Please select a file to check md5sum:");
         startActivityForResult(intent, REQUEST_CODE_PICK_FILE);	
 	}
-	
+
 	public static void downloadUpdateNow(){
 		Intent downloadUpdate = new Intent(Intent.ACTION_VIEW);
 		downloadUpdate.setData(Uri.parse(theUrl));
@@ -330,7 +326,7 @@ public class CrespoUpdaterActivity extends Activity {
 		textView.setText("Wait for download to complete\nBackup Before You Flash!\nReboot into recovery\nWipe cache & dalvik cache\nThen flash the zip file");
 		buttonTextView.setText("Check Download Status");
 	}
-	
+
 	public static void showCustomToast(String str) {
 		// a function to show a custom message to the user in a toast window
 		Toast toast = Toast.makeText(theView, str, Toast.LENGTH_LONG);
@@ -341,7 +337,7 @@ public class CrespoUpdaterActivity extends Activity {
 		toastView.addView(customIcon, 0);
 		toast.show();
 	}
-	
+
 	private static void md5Dialog (final String fileName, final Boolean downloaded){
 		// create dialogs depending on the results of the md5sum
 		if(goodMD5){
@@ -395,7 +391,7 @@ public class CrespoUpdaterActivity extends Activity {
 			}).show();
 		}
 	}
-	
+
 	public static boolean checkFileSize(String fileName) {
 		try {
 			File file = new File("/sdcard"+localFileName);
@@ -405,7 +401,7 @@ public class CrespoUpdaterActivity extends Activity {
 			return true;
 		}
 	}
-	
+
 	public static String checkMD5(final String fileName, Boolean downloaded) throws IOException {
 		final String md5FileName = (!downloaded) ? android.os.Environment.getExternalStorageDirectory().getPath() + fileName : fileName;
 		buttonTextView.setVisibility(4);
@@ -437,7 +433,7 @@ public class CrespoUpdaterActivity extends Activity {
 		}).start();
 		return "done";
 	}
-	
+
 	public static String calculateMD5(String fileName) throws IOException {
 		downloadMD5 = "";
 		if (fileName != null && !fileName.toString().equals("")) {
@@ -448,13 +444,12 @@ public class CrespoUpdaterActivity extends Activity {
 		}
 		return downloadMD5;
 	}
-	
-	
+
 	private static String badFilePath(){
 		textView.setText("Error selecting file!\nIf you have already downloaded,\npress your menu key to select\nit in file the manager.");
 		return "bad";
 	}
-	
+
 	public static void RebootCmd() {
 		// create a dialog choice to allow user to reboot directly into recovery
 		TextView myMsg = new TextView(theView);
@@ -481,7 +476,7 @@ public class CrespoUpdaterActivity extends Activity {
 	        }
 	    }).show();
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -512,8 +507,5 @@ public class CrespoUpdaterActivity extends Activity {
 				}
 			}
 		}
-		
 	}
-	
 }
-
