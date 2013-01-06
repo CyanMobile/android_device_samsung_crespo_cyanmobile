@@ -54,6 +54,10 @@ BOARD_KERNEL_BASE := 0x30000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_CMDLINE := console=ttyFIQ0 no_console_suspend
 
+# Kernel Build
+TARGET_KERNEL_SOURCE := kernel/samsung/crespo
+TARGET_KERNEL_CONFIG := cmx_herring_defconfig
+
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_crespo
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/crespo
 
@@ -70,7 +74,7 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WLAN_DEVICE := bcm4329
-WIFI_DRIVER_MODULE_PATH     := "/system/modules/bcm4329.ko"
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
 WIFI_DRIVER_FW_STA_PATH     := "/vendor/firmware/fw_bcm4329.bin"
 WIFI_DRIVER_FW_AP_PATH      := "/vendor/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_NAME     :=  "bcm4329"
