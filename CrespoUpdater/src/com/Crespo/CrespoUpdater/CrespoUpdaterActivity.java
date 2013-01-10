@@ -45,7 +45,7 @@ public class CrespoUpdaterActivity extends Activity {
 	private static final String manifestURL = "https://raw.github.com/TaichiN/Crespo-ROM/gingerbread/README";
 	private static final String BUILD_VERSION = Build.VERSION.INCREMENTAL;
 	private static final String[] SEPARATED_DATE = BUILD_VERSION.split("\\.");
-	private static final int BUILD_DATE = Integer.parseInt(SEPARATED_DATE[2]);
+	private static final int BUILD_DATE = Long.parseLong(SEPARATED_DATE[2] + SEPARATED_DATE[3]);
 	private static int ALREADY_CHECKED = 0;
 	private String theDate;
 	private static String theUrl;
@@ -272,7 +272,7 @@ public class CrespoUpdaterActivity extends Activity {
 		localFileName = "/download/"+romName;
 		theFileSize = separated[5];
 		// check the current build date against the manifest date
-		upToDate = (BUILD_DATE >= Integer.parseInt(theDate));
+		upToDate = (BUILD_DATE >= Long.parseLong(theDate));
 		if (upToDate) { buttonTextView.setVisibility(4); } else { buttonTextView.setVisibility(0); }
 		// check for the latest version in the downloaded directory
 		String file = android.os.Environment.getExternalStorageDirectory().getPath() + localFileName;
@@ -316,7 +316,7 @@ public class CrespoUpdaterActivity extends Activity {
 		romName = separated[4];
 		theFileSize = separated[5];
 		// check the current build date against the manifest date
-		upToDate = (BUILD_DATE >= Integer.parseInt(theDate));
+		upToDate = (BUILD_DATE >= Long.parseLong(theDate));
         Intent intent = new Intent("org.openintents.action.PICK_FILE");
         intent.setData(Uri.parse("file:///sdcard/download/"));
         intent.putExtra("org.openintents.extra.TITLE", "Please select a file to check md5sum:");
