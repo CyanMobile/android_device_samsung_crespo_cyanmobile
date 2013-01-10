@@ -45,7 +45,7 @@ public class CrespoUpdaterActivity extends Activity {
 	private static final String manifestURL = "https://raw.github.com/TaichiN/Crespo-ROM/gingerbread/README";
 	private static final String BUILD_VERSION = Build.VERSION.INCREMENTAL;
 	private static final String[] SEPARATED_DATE = BUILD_VERSION.split("\\.");
-	private static final int BUILD_DATE = Long.parseLong(SEPARATED_DATE[2] + SEPARATED_DATE[3]);
+	private static final long BUILD_DATE = Long.parseLong(SEPARATED_DATE[2] + SEPARATED_DATE[3]);
 	private static int ALREADY_CHECKED = 0;
 	private String theDate;
 	private static String theUrl;
