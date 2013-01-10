@@ -12,6 +12,9 @@ ro.ril.ntmodeglobal=true
 # Define whether device has hspa
 ro.crespoparts.rild.hspa=1
 
+# hardware info
+ro.device.gpu=200MHz PowerVR SGX 540
+
 #Tweaks
 ro.com.google.locationfeatures=1
 ro.setupwizard.enable_bypass=1
