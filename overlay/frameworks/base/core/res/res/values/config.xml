@@ -34,6 +34,12 @@
     <!-- Our amoled doesn't animate well. -->
     <bool name="config_animateScreenLights">false</bool>
 
+    <!-- Enable the screen animation -->
+    <bool name="config_enableScreenAnimation">true</bool>
+
+    <!-- Enable the screen-off animation -->
+    <bool name="config_enableScreenOffAnimation">true</bool>
+
     <!-- disable menu hard key on Crespo in non-pattern lockscreen -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
